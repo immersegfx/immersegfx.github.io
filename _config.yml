@@ -1,0 +1,22 @@
+# Site settings
+title: DM
+description: > # this means to ignore newlines until "baseurl:"
+  My name is Dwayne Maye and welcome to my blog.  As a long time LAMP developer, graphics designer and web consultant
+  I have a solid the belief that the message, design and functionality are all equally important.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://syrwebdev.com" # the base hostname & protocol for your site
+
+collections:
+  portfolio:
+    output: true
+
+# Build settings
+markdown: kramdown
+
+disqus : immersegfx
+discuss_dev: false;
+google_tracking_id : 'UA-55746400-2'
+
+twitter_username: immersegfx
+github_username:  immersegfx
+linkedin_username: immersegraphics

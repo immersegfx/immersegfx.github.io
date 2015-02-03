@@ -3,6 +3,7 @@ layout: post
 title: "Setting up a NodeJs development environment on Ubuntu 14"
 description: "Notes on getting setting up a NodeJs development environment on Ubuntu 14"
 category: information
+author: Dwayne Maye
 tags: [NodeJs, Npm]
 ---
 If you are like me the first thing that comes to mind when installing a new application is to fire up apt and download it
@@ -17,8 +18,7 @@ about sudo.  [https://gist.github.com/isaacs/579814#file-node-and-npm-in-30-seco
 
 I chose the first option which worked like a charm but it is worth a read as there may be one better suited for your needs.
 
-<script src="https://gist.github.com/isaacs/579814.js?file=node-and-npm-in-30-seconds.sh">
-</script>
+{% gist isaacs/579814 node-and-npm-in-30-seconds.sh %}
 
 ### Conclusion
 

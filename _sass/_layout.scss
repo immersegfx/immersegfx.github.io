@@ -19,12 +19,17 @@
   float: left;
   font-family: "jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
   font-weight: bold;
+
   .wrap {
-    position:relative;
+    position: relative;
   }
   &,
   &:visited {
     color: #FFF;
+  }
+  &:hover {
+    text-decoration: none;
+    color:#aaaaaa;
   }
 }
 
@@ -32,9 +37,9 @@
   font-size: 12px;
   color: #32adf4;
   display: block;
-  position:absolute;
-  bottom:5px;
-  right:5px;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
   letter-spacing: 1px;
 }
 
@@ -177,7 +182,7 @@
 }
 
 .notice {
-  padding:10px 5px;
+  padding: 10px 5px;
   border-style: solid;
   border-width: 1px;
   border-color: #aaaaaa;

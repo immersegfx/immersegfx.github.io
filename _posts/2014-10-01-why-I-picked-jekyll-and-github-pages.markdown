@@ -3,6 +3,7 @@ layout: post
 title: "Why I decided on Jekyll and GitHub pages"
 description: "Notes on getting a functional local Jekyll blog running on windows 8"
 category: information
+author: Dwayne Maye
 tags: [GitHub, Jekyll]
 ---
 

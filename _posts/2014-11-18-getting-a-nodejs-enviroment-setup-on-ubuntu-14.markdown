@@ -20,17 +20,6 @@ I chose the first option which worked like a charm but it is worth a read as the
 <script src="https://gist.github.com/isaacs/579814.js?file=node-and-npm-in-30-seconds.sh">
 </script>
 
-### Setting the npm environment to development
-
-Another option that will save you time is telling **npm** that this is a development environment.  Enabling this setting
-will install the **devDependencies** when running <code>npm install -g</code>.  
-
-To enable this just run the following command:
-
-{% highlight bash %}
-  $ npm config set dev true
-{% endhighlight %}
-
 ### Conclusion
 
 And that's all there is so far.  Hope this can help save someone a little time and as I find more tips I will come 

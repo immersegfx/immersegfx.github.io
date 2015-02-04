@@ -10,6 +10,12 @@
 
   // Positioning context for the mobile navigation icon
   position: relative;
+  @include media-query($on-palm) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
 }
 
 .site-title {
@@ -19,6 +25,9 @@
   float: left;
   font-family: "jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
   font-weight: bold;
+  @include media-query($on-palm) {
+    font-size: 50px;
+  }
 
   .wrap {
     position: relative;
@@ -29,7 +38,7 @@
   }
   &:hover {
     text-decoration: none;
-    color:#aaaaaa;
+    color: #aaaaaa;
   }
 }
 
@@ -41,6 +50,10 @@
   bottom: 5px;
   right: 5px;
   letter-spacing: 1px;
+  @include media-query($on-palm) {
+    font-size: 11px;
+    bottom: 0;
+  }
 }
 
 .site-nav {
@@ -64,7 +77,7 @@
 
   @include media-query($on-palm) {
     position: absolute;
-    top: 9px;
+    top: 0;
     right: 30px;
     background-color: $background-color;
     border: 1px solid $grey-color-light;
@@ -101,8 +114,19 @@
     }
 
     .page-link {
+      float: none;
       display: block;
       padding: 5px 10px;
+      color: $grey-color-dark;
+      margin: 0 !important;
+      min-width: 100px;
+      transition: background .33s;
+
+      &:hover {
+        text-decoration: none;
+        background: $grey-color-dark;
+        color: #fff;
+      }
     }
   }
 }
@@ -237,6 +261,10 @@
 
   @include media-query($on-laptop) {
     font-size: 36px;
+  }
+
+  @include media-query($on-palm) {
+    font-size: 28px;
   }
 }
 

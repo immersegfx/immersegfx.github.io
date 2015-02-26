@@ -1,0 +1,132 @@
+---
+layout: post
+title: "Adding LESS.js support to your MEAN.js app"
+description: "Adding LESS.js support to your MEAN.js app"
+category: MEAN.js
+author: Dwayne Maye
+tags: [Javascript, MEAN.js, LESS, Grunt, NodeJS, yeoman]
+---
+<article>
+    <p>
+        Working on a recent project using MEAN.js I wanted to add support for managing my styles with <strong>LESS.js</strong>.  After
+        building the application using the <strong>yeoman</strong> generator I was a little surprised that it didn't make
+        use of if by default.  Though adding it to the grunt configuration is easy and only takes a minute.
+    </p>
+    <section>
+        <h3>Installing dependencies</h3>
+
+        <p>
+            First you will need to install the <strong>less</strong> and <strong>grunt-contib-less</strong> packages
+            using <strong>npm</strong>.
+        </p>
+        <code>$ npm install --save less grunt-contrib-less</code>
+    </section>
+
+    <section>
+        <h3>Optionally add a folder for .less sources</h3>
+
+        <p>
+            Personally I like to keep source files like less and scss out of my public folder. This is not really a
+            requirement though I find it easier to organize things like this.
+        </p>
+        <code>$ mkdir -p assets/less</code>
+    </section>
+
+    <section>
+        <h3>Configuring Grunt</h3>
+        <h4>Adding the watcher</h4>
+
+        <p>
+            Next you will need to tell <strong>Grunt</strong> how to handle .less files and update the file watchers.
+            Open up <strong>gruntfile.js</strong> in the root of your MEAN.js app and in the <code>initConfig.watch</code>
+            options, add a new option for less files under the clientCSS option. I named mine <code>clientLESS</code>
+            but you can enter any you like so long as it is unique.
+        </p>
+        {% highlight javascript %}
+        grunt.initConfig({
+            pkg: grunt.file.readJSON('package.json'),
+            watch: {
+                ...
+                clientCSS: {...}
+                clientLESS: {
+                    files: ['assets/less/*.less','public/modules/**/*.less'],
+                    tasks: ['less']
+                }
+            }
+        ...
+        {% endhighlight %}
+        <p>
+            <strong>Note:</strong> If you decided not to create an assets folder then you can remove the first option in
+            files.
+        </p>
+        <h4>Configuring less</h4>
+
+        <p>
+            Now tell the <strong>less</strong> configuration where to find source files and what to do with them. I
+            chose to consolidate all the styles into the application core.css. Since this is an <strong>AngularJS</strong>
+            application it is best to have all the needed styles available right away.  I added the following below the
+            <code>csslint</code> configuration.
+        </p>
+        {% highlight javascript %}
+less: {
+    development: {
+        options: {
+            paths: []
+        },
+        files: [{
+            src: ['assets/less/*.less', 'public/modules/**/*.less'],
+            dest: 'public/modules/core/css/core.css'
+        }]
+    },
+    production: {
+        options: {
+            paths: []
+        },
+        files: [{
+            src: ['assets/less/*.less', 'public/modules/**/*.less'],
+            dest: 'public/modules/core/css/core.css'
+        }]
+    }
+}
+        {% endhighlight %}
+
+        <p>
+            Having a development and production environment specification are required and things will fail like this
+            without them.
+        </p>
+
+        <p>
+            <code>Warning: Object #&lt;Object&gt; has no method 'indexOf' Used --force, continuing.</code>
+        </p>
+
+        <p>
+            For now they are the same but once the application is ready to deploy the production settings
+            could be updated to run additional optimizations on your styles.
+        </p>
+    </section>
+    <section>
+        <h3>Updating the lint task to run less</h3>
+        <p>
+            Last you need to add less to the <strong>lint</strong> <code>grunt.registerTask</code> before the <strong>
+            csslint</strong> task.  It should look like this:
+        </p>
+        {% highlight javascript %}
+        grunt.registerTask('lint', ['jshint', 'less', 'csslint']);
+        {% endhighlight %}
+    </section>
+
+    <section>
+        <h3>Conclusion</h3>
+        <p>
+            Setting this up was fairly straight forward, but I did use <strong>yeoman</strong> to generate the site.  If
+            you started by checking out source from github or some other path things may not match.  Though there should
+            be enough here to get it setup.
+        </p>
+        <p>
+            An additional concern that popped into mind is upgrading.  I have not had to migrate to a new version yet and
+            can not guarantee that these changes to the gruntfile will not be overwritten at that time.  Perhaps a better
+            solution of including an external configuration should be looked at, or adding it as an option
+            to the yeoman generator.
+        </p>
+    </section>
+</article>

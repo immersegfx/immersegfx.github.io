@@ -222,6 +222,11 @@
  */
 .page-content {
   padding: $spacing-unit 0;
+  section {
+    h3 {
+      margin-top:2em;
+    }
+  }
 }
 
 .page-heading {

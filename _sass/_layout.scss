@@ -224,7 +224,7 @@
   padding: $spacing-unit 0;
   section {
     h3 {
-      margin-top:2em;
+      margin-top: 2em;
     }
   }
 }
@@ -297,6 +297,49 @@
 
     @include media-query($on-laptop) {
       font-size: 18px;
+    }
+  }
+}
+
+.portfolio-item {
+  margin: 5px;
+  height: 250px;
+  background-clip: content-box;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  border:1px solid #9b9b9b;
+  -webkit-box-shadow: 2px 2px 1px rgba(0,0,0,0.5);
+  box-shadow: 2px 2px 1px rgba(0,0,0,0.5);
+  a {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 5px;
+    width: 100%;
+    background: rgba(0, 0, 0, .7);
+    color: lighten(#236EDB, 30%);
+    font-weight: bold;
+    vertical-align: middle;
+    height:25px;
+    line-height:25px;
+    font-size:.8em;
+    -webkit-transition: height .35s, line-height .35s, color .35s, font-size .35s;
+    transition: height .35s, line-height .35s, color .35s, font-size .35s;
+    span {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+  &:hover {
+    a {
+      color:#fff;
+      text-decoration:none;
+      font-size:1.2em;
+      height: 250px;
+      line-height:250px;
     }
   }
 }

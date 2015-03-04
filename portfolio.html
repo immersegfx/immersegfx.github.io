@@ -1,20 +1,21 @@
+---
 layout: page
-title: Portfolio
+title: Projects
 permalink: /portfolio/
 order: 2
-
+---
 <div class="portfolio-page">
-<p>Some of the applications I have been working on.</p>
+    <div class="pure-g">
+        {% for project in site.portfolio %}
+        <div class="pure-u-12-24">
+            <div class="portfolio-item"
+                 style="background-image: url(/img/portfolio/{{project.directory}}/thumb.jpg); ">
+                <a href="{{ project.url }}">
+                    {{ project.title }}
+                </a>
+            </div>
+        </div>
+        {% endfor %}
 
-<ul>
-{% for project in site.portfolio %}
-<li>
-    <img src="http://1drv.ms/18mLoDL" />
-    <a href="{{ project.url }}">
-        {{ project.title }}
-    </a>
-</li>
-{% endfor %}
-</ul>
-
+    </div>
 </div>

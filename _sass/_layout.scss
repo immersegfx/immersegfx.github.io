@@ -262,7 +262,8 @@
 .post-title {
   font-size: 42px;
   letter-spacing: -1px;
-  line-height: 1;
+  line-height: 1.2;
+  font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
 
   @include media-query($on-laptop) {
     font-size: 36px;
@@ -305,13 +306,14 @@
   margin: 5px;
   height: 250px;
   background-clip: content-box;
-  background-size: cover;
   background-position: center;
   position: relative;
   overflow: hidden;
-  border:1px solid #9b9b9b;
-  -webkit-box-shadow: 2px 2px 1px rgba(0,0,0,0.5);
-  box-shadow: 2px 2px 1px rgba(0,0,0,0.5);
+  border: 1px solid #9b9b9b;
+  -webkit-box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
+  transition: all .35s;
+  background-size: 100%;
   a {
     display: block;
     position: absolute;
@@ -323,23 +325,21 @@
     color: lighten(#236EDB, 30%);
     font-weight: bold;
     vertical-align: middle;
-    height:25px;
-    line-height:25px;
-    font-size:.8em;
+    height: 25px;
+    line-height: 25px;
+    font-size: .8em;
     -webkit-transition: height .35s, line-height .35s, color .35s, font-size .35s;
-    transition: height .35s, line-height .35s, color .35s, font-size .35s;
+    transition: opacity .35s;
+    opacity: 1;
     span {
       display: inline-block;
       vertical-align: middle;
     }
   }
   &:hover {
+    background-size: 110%;
     a {
-      color:#fff;
-      text-decoration:none;
-      font-size:1.2em;
-      height: 250px;
-      line-height:250px;
+      opacity: 0;
     }
   }
 }
